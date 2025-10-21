@@ -1,0 +1,33 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosEngine
+metadata:
+  name: pod-delete-chaos
+  namespace: litmus
+spec:
+  appinfo:
+    appns: default          # Namespace where nginx is deployed
+    applabel: app=nginx     # Label of your app
+    appkind: deployment
+  engineState: active
+  jobCleanUpPolicy: delete  # Clean up chaos runner pods after completion
+  chaosServiceAccount: litmus-admin
+  experiments:
+    - name: pod-delete
+      spec:
+        components:
+          env:
+            - name: TOTAL_CHAOS_DURATION
+              value: "30"          # Total duration of chaos in seconds
+            - name: CHAOS_INTERVAL
+              value: "5"           # Interval between pod deletions in seconds
+            - name: FORCE
+              value: "true"
+            - name: PODS_AFFECTED_PERC
+              value: "50"          # Target 50% of pods
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: "25m"
+            limits:
+              memory: "64Mi"
+              cpu: "50m"

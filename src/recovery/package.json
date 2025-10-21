@@ -1,0 +1,17 @@
+{
+  "name": "recovery",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@kubernetes/client-node": "^1.4.0",
+    "aws-sdk": "^2.1692.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "winston": "^3.18.3"
+  }
+}

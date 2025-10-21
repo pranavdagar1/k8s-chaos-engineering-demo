@@ -1,0 +1,10 @@
+# Ignore Terraform state and provider binaries
+.terraform/
+*.tfstate
+*.tfstate.*
+*.backup
+*.log
+
+# Ignore OS files
+.DS_Store
+*.swp
