@@ -10,3 +10,4 @@
 *.swp
 .terraform/
 *.tfstate
+node_modules/
