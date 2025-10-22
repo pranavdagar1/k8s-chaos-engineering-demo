@@ -6,3 +6,8 @@ variable "vpc_cidr" {
   description = "CIDR block for VPC"
   default     = "10.0.0.0/16"
 }
+variable "multi_az" {
+  description = "Enable multi-AZ deployment"
+  type        = bool
+  default     = true
+}
